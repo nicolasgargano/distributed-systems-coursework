@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+service UserService {
+    rpc RequestUserById (string) returns (User)
+    rpc RequestUsers (RequestUsersInput) returns (Users)
+
+    rpc RegisterUser (RegisterUserInput) returns (User)
+    rpc RemoveUserById (string) returns (User)
+}
+
+message RequestUsersInput {
+}
+
+message RegisterUserInput {
+    string name = 1;
+}
+
+message Users {
+    repeated User users = 1;
+}

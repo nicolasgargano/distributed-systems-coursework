@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "product.proto";
+import "user.proto";
+
+message Wishlist {
+    string id = 1;
+    string userId = 2;
+    repeated Product products = 3;
+}
+
+service WhislistService {
+    rpc RequestWishlistById (string) returns (Wishlist)
+    rpc RequestUserWishlists (RequestUserWishlistsInput) returns (Wishlists)
+
+    rpc AddProductToWishlist (WishlistAndProduct) returns (Product)
+    rpc RemoveProductFromWishlist (WishlistAndProduct) returns (Product)
+}
+
+message RequestUserWishlistsInput {
+    string userId = 1;
+}
+
+message WishlistAndProduct {
+    string productId = 1;
+    string wishlistId = 2;
+}
+
+message RequestWishlistPayload {
+    Wishlist wishlist = 1;
+}
+
+message Wishlists {
+    repeated Wishlist wishlists = 1;
+}
