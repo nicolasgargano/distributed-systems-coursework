@@ -1,15 +1,31 @@
 syntax = "proto3";
 
+//  Defines the product.
 message Product {
-    string id = 1;
+    ProductId id = 1;
     string name = 2;
+    repeated ProductDetail details = 3;
 }
 
-service ProductService {
-    rpc RequestProductById (string) returns (Product)
-    rpc AddProduct(AddProductInput) returns (Product)
+message ProductId   {
+    int64 id = 1;
 }
 
+message ProductDetail   {
+    string detailName = 1;
+    string detailInfo = 2;
+}
+
+//  Defines the service.
+service ProductService  {
+    rpc RequestProductById (ProductId) returns (Product){}
+    //    Not define yet.
+    //    rpc AddProduct(AddProductInput) returns (Product){}
+}
+
+
+//    Not define yet.
+/*
 message AddProductInput {
     string name = 1;
-}
+}*/
