@@ -205,3 +205,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/linux,macos,windows,webstorm,jetbrains
+
+# Ignore all the .idea directory
+.idea/
+
+# Ignore the target directory
+target/
+
+
