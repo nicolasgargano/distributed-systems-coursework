@@ -34,4 +34,5 @@ message RequestWishlistPayload {
 
 message Wishlists {
     repeated Wishlist wishlists = 1;
-}*/
+}
+*/
