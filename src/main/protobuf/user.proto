@@ -5,7 +5,7 @@ import "product.proto";
 message User {
     string userNameId = 1;
     string name = 2;
-    repeated Wishlist wishlists = 3;
+    WishList wishlist = 3;
 }
 
 message UserNameId  {
@@ -13,8 +13,8 @@ message UserNameId  {
 }
 
 //  Defines the wishlist
-message Wishlist {
-    string nameId = 1;
+message WishList {
+    string name = 1;
     repeated Product products = 2;
 }
 
@@ -23,43 +23,41 @@ service UserService {
     rpc RemoveUserById (UserNameId) returns (Response){}
     //    Not used.
     //    rpc RequestUserById (UserNameId) returns (User){}
-    rpc createWishlist(RequestCreateWishlist) returns (Response) {}
-    rpc deleteWishlist(RequestDeleteWishlist) returns (Response) {}
-
-    rpc getWishlistById (RequestUserWishlist)  returns (Wishlist){}
-    rpc getUserWishlists (UserNameId) returns (WishlistsResponse){}
-    rpc addProductToWishlist (RequestAddProductToWishlist) returns (Response){}
-    rpc removeProductFromWishlist (RequestRemoveProductFromWishlist) returns (Response){}
+    //    rpc createWishList(RequestCreateWishList) returns (Response) {}
+    //    rpc deleteWishList(RequestDeleteWishList) returns (Response) {}
+    rpc getUserWishList (User)  returns (WishList){}
+    //    rpc getUserWishLists (UserNameId) returns (WishListsResponse){}
+    rpc addProductToWishList (RequestAddProductToWishList) returns (Response){}
+    rpc removeProductFromWishList (RequestRemoveProductFromWishList) returns (Response){}
     //    Not used
     //    rpc RequestUsers (RequestUsersInput) returns (Users)
 }
-
-message RequestCreateWishlist {
-    string wishlistNameId = 1;
+message RequestAddProductToWishList {
+    Product product = 1;
+    string userId = 2;
 }
 
-message RequestDeleteWishlist {
-    string wishlistNameId = 1;
+message RequestRemoveProductFromWishList {
+    ProductId productId = 1;
+    string userId = 2;
 }
 
-message RequestUserWishlist {
+/*message RequestCreateWishList {
+    string wishlistNameId = 1;
+}*/
+
+/*message RequestDeleteWishList {
+    string wishlistNameId = 1;
+}*/
+
+/*message RequestUserWishList {
     string userNameId = 1;
     string wishlistNameId = 2;
-}
+}*/
 
-message RequestAddProductToWishlist {
-    Product product = 1;
-    string wishlistNameId = 2;
-}
-
-message RequestRemoveProductFromWishlist {
-    ProductId productId = 1;
-    string wishlistNameId = 2;
-}
-
-message WishlistsResponse {
-    repeated Wishlist wishlists = 1;
-}
+/*message WishListsResponse {
+    repeated WishList wishlists = 1;
+}*/
 
 //  Defines the message Response for general response.
 message Response    {
