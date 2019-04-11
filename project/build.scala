@@ -13,7 +13,7 @@ object Settings {
 
 object ProductApi {
   val settings = Seq(
-    dockerBaseImage := "java:8",
+    dockerBaseImage := "robsonoduarte/8-jre-alpine-bash",
     dockerExposedPorts := Seq(8000),
     dockerRepository := Some("distributed-systems-course"),
     packageName in Docker := name.value,
@@ -24,7 +24,7 @@ object ProductApi {
 
 object UserApi {
   val settings = Seq(
-    dockerBaseImage := "java:8",
+    dockerBaseImage := "robsonoduarte/8-jre-alpine-bash",
     dockerExposedPorts := Seq(8000),
     dockerRepository := Some("distributed-systems-course"),
     packageName in Docker := name.value,
