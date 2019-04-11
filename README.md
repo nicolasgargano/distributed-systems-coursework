@@ -5,7 +5,9 @@
 - `distributed-systems-course/users:latest`
 
 ## Run containers
-`docker-compose up -d` will use the images created to run two instances of each service.
+`docker-compose up -d` will provide:
 
+- PostgreSQL database at port 5432
+- GraphQL Playground at http://localhost:5000/playground
 - ProductServers at ports 8001 and 8002
 - UserServers at ports 9001 and 9002
