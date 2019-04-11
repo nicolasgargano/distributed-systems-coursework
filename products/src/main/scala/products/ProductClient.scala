@@ -1,4 +1,4 @@
-package main.scala
+package products
 
 import io.grpc.ManagedChannelBuilder
 import product.{Product, ProductId, ProductServiceGrpc}

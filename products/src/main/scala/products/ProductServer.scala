@@ -1,4 +1,4 @@
-package main.scala
+package products
 
 import io.grpc.ServerBuilder
 import product.ProductServiceGrpc
@@ -8,7 +8,7 @@ import scala.concurrent.ExecutionContext
 object ProductServer extends App {
 
   //  Creates the server.
-  val productServer = ServerBuilder.forPort(8080)
+  val productServer = ServerBuilder.forPort(8000)
     .addService(ProductServiceGrpc.bindService(new ProductService(), ExecutionContext.global))
     .build()
 

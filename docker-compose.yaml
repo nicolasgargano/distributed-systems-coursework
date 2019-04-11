@@ -1,0 +1,22 @@
+version: '3'
+services:
+  products-1:
+    image: distributed-systems-course/products:latest
+    ports:
+      - 8001:8000
+
+  products-2:
+    image: distributed-systems-course/products:latest
+    ports:
+      - 8002:8000
+
+  users-1:
+    image: distributed-systems-course/users:latest
+    ports:
+      - 9001:8000
+
+  users-2:
+    image: distributed-systems-course/users:latest
+    ports:
+      - 9002:8000
+

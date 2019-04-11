@@ -1,4 +1,4 @@
-package main.scala
+package users
 
 import product.{Product, ProductDetail, ProductId}
 import user._

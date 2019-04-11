@@ -1,4 +1,4 @@
-package main.scala
+package products
 
 import product.{Product, ProductDetail, ProductId, ProductServiceGrpc}
 
